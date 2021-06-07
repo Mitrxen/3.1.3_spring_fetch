@@ -1,0 +1,150 @@
+<div th:fragment="forEdit">
+	
+	<div class="modal fade" id="modalForEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title fw-bold" id="exampleModalLabel">Edit user</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form id="edit_form" role="form" th:method="PATCH" th:action="@{/admin/users}">
+				<div class="modal-body text-center col-md-7 container-fluid fw-bold">
+
+					
+					<div class="form-group">
+						<label for="edit_input_id">ID</label>
+						<input name="edit_input_id" type="text" readonly="readonly" class="form-control" id="edit_input_id" />
+					</div>
+					<div class="form-group">
+						<label for="edit_input_firstname">Firstname</label>
+						<input name="edit_input_firstname" type="text" class="form-control" id="edit_input_firstname" />
+					</div>
+					<div class="form-group pt-2">
+						<label for="edit_input_lastname">Lastname</label>
+						<input name="edit_input_lastname" type="text" class="form-control" id="edit_input_lastname" />
+					</div>
+					<div class="form-group pt-2">
+						<label for="edit_input_age">Age</label>
+						<input name="edit_input_age" type="number" class="form-control" id="edit_input_age" />
+					</div>
+					<div class="form-group pt-2">
+						<label for="edit_input_email">Email address</label>
+						<input name="edit_input_email" type="email" class="form-control" id="edit_input_email" />
+					</div>
+					<div class="form-group pt-2 pb-2">
+						<label for="edit_input_password">Password</label>
+						<input name="edit_input_password" type="password" class="form-control" id="edit_input_password" />
+					</div>
+					<label for="edit_input_userRoles">Role</label>
+					<select name="edit_input_userRoles" class="form-select" size="2" id="edit_input_userRoles" aria-label="multiple select example">
+						<option value="ADMIN">ADMIN</option>
+						<option value="USER">USER</option>
+					</select>
+
+				</div>
+				<div class="modal-footer" id="edit_modal-footer">
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+<div th:fragment="forDelete">
+	
+	<div class="modal fade" id="modalForDelete" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title fw-bold" id="deleteModalLabel">Delete user</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form role="form" th:method="DELETE" th:action="@{/admin/users}">
+				<div class="modal-body text-center col-md-7 container-fluid fw-bold">
+
+					<div class="form-group">
+						<label for="delete_input_id">ID</label>
+						<input name="delete_input_id" type="text" readonly="readonly" class="form-control" id="delete_input_id" />
+					</div>
+					<div class="form-group">
+						<label for="delete_input_firstname">Firstname</label>
+						<input name="delete_input_firstname" readonly="readonly" type="text" class="form-control" id="delete_input_firstname" />
+					</div>
+					<div class="form-group pt-2">
+						<label for="delete_input_lastname">Lastname</label>
+						<input name="delete_input_lastname" readonly="readonly" type="text" class="form-control" id="delete_input_lastname" />
+					</div>
+					<div class="form-group pt-2">
+						<label for="delete_input_age">Age</label>
+						<input name="delete_input_age" readonly="readonly" type="number" class="form-control" id="delete_input_age" />
+					</div>
+					<div class="form-group pt-2">
+						<label for="delete_input_email">Email address</label>
+						<input name="delete_input_email" readonly="readonly" type="email" class="form-control" id="delete_input_email" />
+					</div>
+					<label for="delete_input_userRoles">Role</label>
+					<select name="delete_input_userRoles" disabled class="form-select" id="delete_input_userRoles" aria-label="multiple select example">
+					</select>
+
+				</div>
+				<div class="modal-footer" id="modal-footer">
+
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+<div th:fragment="forAddNewUser">
+
+	<div class="container-fluid col-md-3 text-center fw-bold fs-5 border border-1">								
+		<form role="form" id="add_new_user_form" th:method="POST" th:action="@{/admin/users}">
+		
+			<div class="form-group">
+				<label for="add_input_firstname">Firstname</label>
+				<input type="text" name="firstname" class="form-control" id="add_input_firstname" placeholder="firstname" />
+			</div>
+			
+			<div class="form-group pt-2">
+				<label for="add_input_lastname">Lastname</label>
+				<input type="text" name="lastname" class="form-control" id="add_input_lastname" placeholder="lastname" />
+			</div>
+			
+			<div class="form-group pt-2">
+				<label for="add_input_age">Age</label>
+				<input type="number" name="age" class="form-control" id="add_input_age" placeholder="age" />
+			</div>
+			
+			<div class="form-group pt-2">
+				<label for="add_input_email">Email address</label>
+				<input type="email" name="email" class="form-control" id="add_input_email" placeholder="email" />
+			</div>
+			
+			<div class="form-group pt-2 pb-2">
+				<label for="add_input_password">Password</label>
+				<input type="password" name="password" class="form-control" id="add_input_password" placeholder="password" />
+			</div>
+			
+			<label for="add_input_role">Role</label>
+			<select class="form-select" name="add_input_userRoles" size="2" id="add_input_userRoles" aria-label="multiple select example">
+				<option value="ADMIN">ADMIN</option>
+				<option value="USER">USER</option>
+			</select>
+			
+			<div class="pt-3 pb-2">
+				<button type="submit" class="btn btn-success pt-2" id="add_new_user_button" onclick="funcAddNewUserButton()">Add new user</button>
+			</div>
+		</form>
+	</div>
+	
+</div>
